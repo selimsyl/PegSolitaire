@@ -37,3 +37,29 @@ PegSolitaire::PegSolitaire(int boardType)
 {
   
 }
+
+PegSolitaire::PegSolitaire(int row,int column)
+: rowSize{row}, columnSize{column}
+{
+  
+}
+
+int PegSolitaire::getRowSize()
+{
+  return rowSize;
+}
+
+int PegSolitaire::getColumnSize()
+{
+  return columnSize;
+}
+
+int PegSolitaire::getNumberOfPegs()
+{
+  return numberOfPegs;
+}
+
+int PegSolitaire::getNumberOfEmptyCells()
+{
+  return numberOfEmptyCells;
+}

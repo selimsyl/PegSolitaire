@@ -27,9 +27,19 @@ public:
       char column;
       CellState state = EMPTY;
   };
-  PegSolitaire() = default;
-  PegSolitaire(int);
 
+  // PegSolitaire() = default;
+  PegSolitaire(int boardType);
+  PegSolitaire(int row,int column);
+
+  int getRowSize();
+  int getColumnSize();
+  int getNumberOfPegs();
+  int getNumberOfEmptyCells();
 private:
   std::vector<std::vector<Cell>> board;
+  int rowSize = 0;
+  int columnSize = 0;
+  int numberOfPegs = rowSize*columnSize-1;
+  int numberOfEmptyCells = rowSize*columnSize-numberOfPegs;
 };
