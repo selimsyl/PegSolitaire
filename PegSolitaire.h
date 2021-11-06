@@ -1,18 +1,18 @@
 #pragma once
 #include <vector>
 
-enum CellState
-{
-  EMPTY,
-  PEG
-};
-
 class PegSolitaire
 {
 public:
   class Cell
   {
     public:
+      enum CellState
+      {
+        EMPTY,
+        PEG
+      };
+
       Cell() =  default;
       Cell(int row,char column,CellState state) 
         : row{row}, column{column}, state{state}{};

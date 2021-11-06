@@ -1,7 +1,7 @@
 #include "PegSolitaire.h"
 
 using BoardRow = std::vector<PegSolitaire::Cell>;
-
+using CellState = PegSolitaire::Cell::CellState;
 
 char PegSolitaire::Cell::getColumn()
 {

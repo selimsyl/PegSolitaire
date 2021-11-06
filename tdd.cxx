@@ -4,13 +4,14 @@
 #include <random>
 
 using namespace testing;
+using CellState = PegSolitaire::Cell::CellState;
 
 TEST(pegCell,defaultCtor)
 {
   PegSolitaire::Cell cell{};
   EXPECT_FALSE(cell.getRow());
   EXPECT_FALSE(cell.getColumn());
-  EXPECT_EQ(cell.getState(),EMPTY);
+  EXPECT_EQ(cell.getState(),CellState::EMPTY);
 }
 
 TEST(pegCell,setRow)
@@ -30,8 +31,8 @@ TEST(pegCell,setColumn)
 TEST(pegCell,setState)
 {
   PegSolitaire::Cell cell{};
-  cell.setState(PEG);
-  EXPECT_EQ(cell.getState(),PEG);
+  cell.setState(CellState::PEG);
+  EXPECT_EQ(cell.getState(),CellState::PEG);
 }
 
 class PegSolitaireTest : public ::testing::Test
