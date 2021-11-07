@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <string>
+#include <unordered_map>
 
 class PegSolitaire
 {
@@ -10,7 +12,8 @@ public:
       enum CellState
       {
         EMPTY,
-        PEG
+        PEG,
+        NOTCELL,
       };
 
       Cell() =  default;
@@ -25,21 +28,34 @@ public:
     private:
       int row;
       char column;
-      CellState state = EMPTY;
+      CellState state = PEG;
   };
 
   // PegSolitaire() = default;
   PegSolitaire(int boardType);
   PegSolitaire(int row,int column);
+  PegSolitaire(std::string boardImage);
 
   int getRowSize();
   int getColumnSize();
   int getNumberOfPegs();
   int getNumberOfEmptyCells();
+  int getNumberOfPegsTakenOut();
+  void displayBoard();
+  std::string converBoardToString();
 private:
+  void initBoardMap();
+  auto getBoardFromString(const std::string& boardImage);
+  void createBoard(int boardType = 0);
+  void adjustBoardSizeIfNeeded();
+
+  static constexpr int minRowSize = 6;
+  static constexpr int minColumnSize = minRowSize;
   std::vector<std::vector<Cell>> board;
+  std::unordered_map<int,std::string> mapBoard;
+
   int rowSize = 0;
   int columnSize = 0;
-  int numberOfPegs = rowSize*columnSize-1;
-  int numberOfEmptyCells = rowSize*columnSize-numberOfPegs;
+  int numberOfPegs = 0;
+  // int numberOfEmptyCells = rowSize*columnSize-numberOfPegs;
 };
