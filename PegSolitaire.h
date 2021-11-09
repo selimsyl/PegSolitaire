@@ -43,6 +43,7 @@ public:
   int getNumberOfPegsTakenOut();
   void displayBoard();
   std::string converBoardToString();
+  std::string getBoardImage(int boardType);
 private:
   void initBoardMap();
   auto getBoardFromString(const std::string& boardImage);

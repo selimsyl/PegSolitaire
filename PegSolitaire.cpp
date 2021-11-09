@@ -185,3 +185,8 @@ void PegSolitaire::initBoardMap()
   mapBoard.insert({4,boardFour});
   mapBoard.insert({5,boardFive});
 }
+
+std::string PegSolitaire::getBoardImage(int type)
+{
+  return mapBoard.at(type);
+}
